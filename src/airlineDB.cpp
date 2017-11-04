@@ -8,6 +8,7 @@
 //============================================================================
 
 #include "LinkedList.h"
+#include "Passenger.h"
 #include <iostream>
 using namespace std;
 
@@ -25,6 +26,17 @@ int main() {
 
 	cout << "List contains:" << endl;
 	cout << *listPTR << endl;
+
+    Passenger* P_1;
+    P_1 = new Passenger("steve", "smith", "5012 245th ave ne Redmond, WA 98052", "425-885-5535");
+    //cout <<*P_1;
+
+	LinkedList<Passenger>* listPASS;
+	listPASS = new LinkedList<Passenger>();
+    listPASS->inserFirst(*P_1);
+    cout << listPASS;
+    cout << P_1->getFirstName() << endl;
+
 
 
 	return 0;
