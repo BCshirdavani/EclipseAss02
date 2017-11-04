@@ -10,6 +10,7 @@
 #include "LinkedList.h"
 #include "Passenger.h"
 #include <iostream>
+#include <typeinfo>
 using namespace std;
 
 int main() {
@@ -34,8 +35,9 @@ int main() {
 	LinkedList<Passenger>* listPASS;
 	listPASS = new LinkedList<Passenger>();
     listPASS->inserFirst(*P_1);
-    cout << listPASS;
-    cout << P_1->getFirstName() << endl;
+
+//    cout << *listPASS << endl;            // FAILURE HERE
+    cout << (*P_1).getFirstName() << endl;  // FAILURE HERE
 
 
 

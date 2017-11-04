@@ -36,8 +36,11 @@ class LinkedList{
 		void deleteNote(T&);
 		void destroylist();
 		LinkedList<T>& operator=(LinkedList<T>&);
+		// cout overload fails to print lists with Passenger objects ///////////
 		template <class U>
 		friend ostream& operator<<(ostream& os, LinkedList<U>& list);
+		// printPassList is my workaround to print Passenger lists /////////////
+		void printPassList();
 		~LinkedList();
 };
 //***********************************************************
@@ -149,7 +152,7 @@ LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>& list){
 	return *this;
 }
 //***********************************************************
-//												<<
+//												<<  ///////////////////////
 template <class T>
 ostream& operator<<(ostream& os, LinkedList<T>& list){
 	node<T> *p = list.head;
@@ -157,8 +160,18 @@ ostream& operator<<(ostream& os, LinkedList<T>& list){
 		os<<p->data<<" "<<endl;
 		p = p->next;
 	}
-
 }
+
+//***********************************************************
+//									printPassList()  ///////////////////////
+//void printPassList(){
+//	node *p = list.head;
+//	while(p!= NULL){
+//		os<<p->data<<" "<<endl;
+//		p = p->next;
+//	}
+//}
+
 //***********************************************************
 //												destructor
 template <class T>

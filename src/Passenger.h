@@ -37,7 +37,10 @@ public:
     void setPhone(string);
     Passenger();                            // defult constructor
     Passenger(string, string, string, string);
+    // fails to print passenger objects //////////////////////////////
     friend ostream& operator<<(ostream& os, Passenger& person);
+    // workaround to pring passenger data
+    void print();
 };
 
 //**************************************************************
@@ -46,6 +49,10 @@ template <class T>
  ostream& operator<<(ostream& os, Passenger& p){
     cout << p.getFirstName() << " " << p.getLastName() << " [" << p.getAddress() << "] [" << p.getPhone() << " ]";
 }
+
+
+//**************************************************************
+//                                          define print()
 
 
 
